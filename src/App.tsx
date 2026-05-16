@@ -18,6 +18,7 @@ import ReactMarkdown from 'react-markdown';
 import { cn, formatTimestamp, fileToBase64 } from '@/src/lib/utils';
 import { TranscriptionReport } from '@/src/types';
 import { Document, Packer, Paragraph, TextRun, HeadingLevel } from "docx";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -590,6 +591,7 @@ ${report.segments.map(s => `[${formatTimestamp(s.startTime)}] ${s.speaker}: ${s.
           <span>GEMINI POWERED</span>
         </div>
       </footer>
+      <SpeedInsights />
     </div>
   );
 }
